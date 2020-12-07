@@ -88,12 +88,14 @@ const users = [
 // Первый (не оптимальный вариант решения)
 
 // Write code under this line
-const getUserNames = function (array) {
-  return array.map({name} = user => user.name);
-}
+// const getUserNames = function (array) {
+//   return array.map({name} = user => user.name);
+// }
 
 // Второй (оптимальный вариант решения)
-// const getUserNames = array => array.map(({ name }) => name);
+// 1. Используем метод map, в котором применяем деструктурирующее присваивание для name и возвращает имена из обьекта свойства name;
+
+const getUserNames = array => array.map(({ name }) => name);
 
 console.log(getUserNames(users));
 
