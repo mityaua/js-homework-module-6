@@ -85,10 +85,14 @@ const users = [
   },
 ];
 
-// Write code under this line
-const getUserWithEmail = (array, mail) => array;
+// 1. Применяем для массива метод find, в котором используем коллбек с деструктурирующим присваиванием;
+// 2. Возвращаем через коллбек проверку имейли и параметра mail;
 
-// console.log(getUserWithEmail(users, 'rossvazquez@xinware.com'));
+// Write code under this line
+const getUserWithEmail = (array, mail) =>
+  array.find(({ email }) => email === mail);
+
+console.log(getUserWithEmail(users, 'rossvazquez@xinware.com'));
 
 /* {
     id: '88beb2f3-e4c2-49f3-a0a0-ecf957a95af3',
@@ -103,7 +107,7 @@ const getUserWithEmail = (array, mail) => array;
     age: 24,
 } */
 
-// console.log(getUserWithEmail(users, 'blackburndotson@furnigeer.com'));
+console.log(getUserWithEmail(users, 'blackburndotson@furnigeer.com'));
 
 /* {
     id: '150b00fb-dd82-427d-9faf-2879ea87c695',
