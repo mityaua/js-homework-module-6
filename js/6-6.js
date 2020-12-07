@@ -85,9 +85,14 @@ const users = [
   },
 ];
 
+// 1. Добавляем для фильтра условие на проверку возраста в диапазоне между минимальным и максимальным;
+// 2. Возвращаем из map имя и почту, которую за нас деструктурировали ранее;
+
 // Write code under this line
 const getUsersWithAge = (array, min, max) =>
-  array.filter(({ age }) => age).map(({ name, email }) => ({}));
+  array
+    .filter(({ age }) => age > min && age < max)
+    .map(({ name, email }) => ({ name, email }));
 
 console.log(getUsersWithAge(users, 20, 30));
 /* [
