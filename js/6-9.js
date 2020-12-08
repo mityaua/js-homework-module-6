@@ -85,9 +85,15 @@ const users = [
   },
 ];
 
+// 1. Распыляем получаемый массив array, так как будем применять метод sort, который мутирует входящий массив;
+// 2. В методе sort создаем две переменные, по которым будем сортировать длинну массивов с друзьями;
+// 3. Применяем метод map для перебора массива и выводим имя всех отсортированных людей;
+
 // Write code under this line
 const getNamesSortedByFriendsCount = array =>
-  array.sort(({ friends }) => friends).map(({ name }) => name);
+  [...array]
+    .sort((few, many) => few.friends.length - many.friends.length)
+    .map(({ name }) => name);
 
 console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
