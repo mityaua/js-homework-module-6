@@ -86,7 +86,11 @@ const users = [
 ];
 
 // Write code under this line
-const getSortedUniqueSkills = array => array;
+const getSortedUniqueSkills = array =>
+  array
+    .reduce((acc, { skills }) => [...acc, ...skills], [])
+    .filter((skill, index, array) => array.indexOf(skill) === index)
+    .sort();
 
 console.log(getSortedUniqueSkills(users));
 
